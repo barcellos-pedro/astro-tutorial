@@ -1,0 +1,46 @@
+---
+const links = {
+  twitter: "pedroreis_io",
+  linkedin: "pedro-barcellos",
+  github: "barcellos-pedro",
+};
+
+const styles = {
+  anchor: {
+    'text-decoration': 'none',
+    "margin-right": "1em",
+  },
+};
+
+function getLink(platform: string) {
+  const suffix = "https://www.";
+  const prefix = `${links[platform]}`;
+  let finalLink;
+
+  switch (platform) {
+    case "linkedin":
+      finalLink = `${suffix}${platform}.com/in/${prefix}`;
+      break;
+    default:
+      finalLink = `${suffix}${platform}.com/${prefix}`;
+  }
+
+  return finalLink;
+}
+---
+
+<footer>
+  <p>
+    Learn more about my projects on <a
+      href={`https://www.github.com/${links.github}`}>Github</a
+    >!
+  </p>
+  <p>Add me on:</p>
+  {
+    Object.keys(links).map((platform) => (
+      <a style={styles.anchor} href={getLink(platform)}>
+        {platform}
+      </a>
+    ))
+  }
+</footer>

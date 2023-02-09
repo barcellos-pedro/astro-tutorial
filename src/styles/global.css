@@ -25,6 +25,7 @@ h1 {
     top: 5rem;
     left: 48px;
     background-color: #ff9776;
+    display: none;
     margin: 0;
 }
 
@@ -52,6 +53,7 @@ h1 {
     .nav-links {
         margin-left: 5em;
         position: static;
+        display: block;
         width: auto;
         background: none;
     }
@@ -61,4 +63,23 @@ h1 {
         padding: 15px 20px;
     }
 
+    .hamburger {
+        display: none;
+    }
+
+}
+
+/** Hamburguer menu **/
+.hamburger {
+    padding: .5em;
+    cursor: pointer;
+    border: none;
+}
+
+.hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #ff9776;
 }

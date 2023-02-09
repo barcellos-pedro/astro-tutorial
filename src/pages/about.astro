@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
 
 const pageTitle = "About Me";
 
@@ -27,6 +28,9 @@ const textCase = "uppercase";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <style define:vars={{ skillColor, fontWeight, textCase }}>
+      :root {
+        --textRed: red;
+      }
       h1 {
         color: purple;
         font-size: 4rem;
@@ -39,8 +43,7 @@ const textCase = "uppercase";
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
+    <Navigation />
 
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>

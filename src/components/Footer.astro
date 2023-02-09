@@ -1,13 +1,14 @@
 ---
+import Social from "./Social.astro";
+
 const links = {
   twitter: "pedroreis_io",
   linkedin: "pedro-barcellos",
-  github: "barcellos-pedro",
 };
 
 const styles = {
   anchor: {
-    'text-decoration': 'none',
+    "text-decoration": "none",
     "margin-right": "1em",
   },
 };
@@ -31,11 +32,12 @@ function getLink(platform: string) {
 
 <footer>
   <p>
-    Learn more about my projects on <a
-      href={`https://www.github.com/${links.github}`}>Github</a
-    >!
+    Learn more about my projects on
+    <Social platform="github" username="barcellos-pedro" />
   </p>
+
   <p>Add me on:</p>
+
   {
     Object.keys(links).map((platform) => (
       <a style={styles.anchor} href={getLink(platform)}>

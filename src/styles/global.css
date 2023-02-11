@@ -1,9 +1,15 @@
+:root {
+    color-scheme: light dark;
+    --flash-white: #f1f5f9;
+    --jet: #333333;
+    --lavanda: #e3d4f2;
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    background-color: #f1f5f9;
     font-family: sans-serif;
 }
 
@@ -27,4 +33,16 @@ h1 {
 
 .expanded {
     display: unset;
+}
+
+@media (prefers-color-scheme: light) {
+    html {
+        background: var(--flash-white);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background: var(--jet);
+    }
 }

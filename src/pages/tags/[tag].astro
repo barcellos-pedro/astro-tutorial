@@ -1,0 +1,32 @@
+---
+import BlogPost from "../../components/BlogPost.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+/** Generate page routes for each possible tag */
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../posts/*.md");
+  const tags = allPosts.map((post) => post.frontmatter.tags);
+  const allTags = Array.from(new Set(tags.flat()));
+
+  function getPostsByTag(tag) {
+    return allPosts.filter(({ frontmatter }) => frontmatter.tags.includes(tag));
+  }
+
+  return allTags.map((tag) => ({
+    params: { tag },
+    props: { posts: getPostsByTag(tag) },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <p>Posts tagged with <b>{tag}</b></p>
+  {
+    posts.map((post) => (
+      <BlogPost url={post.url} title={post.frontmatter.title} />
+    ))
+  }
+</BaseLayout>

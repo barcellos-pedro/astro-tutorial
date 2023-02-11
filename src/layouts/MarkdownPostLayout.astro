@@ -14,6 +14,17 @@ const { frontmatter } = Astro.props;
       text-align: center;
     }
 
+    .meta .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      width: 80%;
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+    }
+
     img {
       margin: 0 auto;
     }
@@ -30,7 +41,10 @@ const { frontmatter } = Astro.props;
   <div class="meta">
     <p>Written by {frontmatter.author}</p>
     <p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
-    <p>🏷️ Tags: {frontmatter.tags.join(", ")}</p>
+    <p>🏷️ Tags</p>
+    <p class="tags">
+      {frontmatter.tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+    </p>
   </div>
 
   <img src={frontmatter.image.url} alt={frontmatter.image.alt} />

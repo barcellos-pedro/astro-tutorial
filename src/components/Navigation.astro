@@ -1,3 +1,16 @@
+---
+const links = [
+  { url: "/", name: "Home" },
+  { url: "/about/", name: "About" },
+  { url: "/blog/", name: "Blog" },
+  { url: "/tags/", name: "Tags" },
+];
+---
+
+<div class="nav-links">
+  {links.map((link) => <a href={link.url}>{link.name}</a>)}
+</div>
+
 <style>
   .nav-links {
     width: 100%;
@@ -39,9 +52,3 @@
     }
   }
 </style>
-
-<div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-</div>

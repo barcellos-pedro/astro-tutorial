@@ -3,9 +3,35 @@ import Hamburguer from "./Hamburguer.astro";
 import Navigation from "./Navigation.astro";
 ---
 
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .theme {
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 0.5em;
+    background: var(--lavanda);
+    border-radius: 30px;
+  }
+  .theme button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+</style>
+
 <header>
   <nav>
     <Hamburguer />
     <Navigation />
+    <div class="theme">
+      <button aria-label="Ligth theme" title="Ligtht theme">☀️</button>
+      <button aria-label="Dark theme" title="Dark theme">🌑</button>
+    </div>
   </nav>
 </header>

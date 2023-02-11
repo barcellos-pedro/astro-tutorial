@@ -1,3 +1,24 @@
+<style>
+  .hamburger {
+    padding: 0.5em;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #ff9776;
+  }
+  @media screen and (min-width: 636px) {
+    .hamburger {
+      display: none;
+    }
+  }
+</style>
+
 <button class="hamburger">
   <span class="line"></span>
   <span class="line"></span>

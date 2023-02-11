@@ -1,6 +1,6 @@
 <div class="theme">
-  <button aria-label="Ligth theme" title="Ligtht theme">☀️</button>
-  <button aria-label="Dark theme" title="Dark theme">🌑</button>
+  <button id="light" aria-label="Light theme" title="Light theme">☀️</button>
+  <button id="dark" aria-label="Dark theme" title="Dark theme">🌙</button>
 </div>
 
 <style>
@@ -9,14 +9,28 @@
     height: 2em;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 1.3em;
     gap: 0.5em;
-    background: var(--lavanda);
+    background: transparent;
+    border: 1px solid gray;
     border-radius: 30px;
   }
   .theme button {
+    transform: scale(1.3);
     border: none;
     background: transparent;
     cursor: pointer;
+  }
+
+  @media (prefers-color-scheme: light) {
+    .theme button#dark {
+      filter: grayscale(100%);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .theme button#light {
+      filter: grayscale(100%);
+    }
   }
 </style>
